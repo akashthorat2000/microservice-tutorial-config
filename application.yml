@@ -1,29 +1,3 @@
-server:
-  port: 8084
-
-spring:
-  application:
-    name: APIGATEWAY
-
-  cloud:
-    gateway:
-      server:
-        webflux:
-          routes:
-            - id: USERSERVICE
-              uri: lb://USERSERVICE
-              predicates:
-                - Path=/users/**
-
-            - id: HOTELSERVICE
-              uri: lb://HOTELSERVICE
-              predicates:
-                - Path=/hotels/**,/staffs/**
-
-            - id: RATINGSERVICE
-              uri: lb://RATINGSERVICE
-              predicates:
-                - Path=/ratings/**
 
 eureka:
   client:
